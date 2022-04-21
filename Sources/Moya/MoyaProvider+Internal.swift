@@ -53,6 +53,9 @@ public extension MoyaProvider {
             switch requestResult {
             case .success(let urlRequest):
                 request = urlRequest
+                if let timeoutInterval = target.timeoutInterval {
+                    request.timeoutInterval = timeoutInterval
+                }
             case .failure(let error):
                 pluginsWithCompletion(.failure(error))
                 return

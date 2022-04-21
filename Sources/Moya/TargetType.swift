@@ -25,6 +25,9 @@ public protocol TargetType {
     var headers: [String: String]? { get }
 
     var redirectHandler: RedirectHandler? { get }
+
+    /// The timeoutInterval value of URLRequest
+    var timeoutInterval: TimeInterval? { get }
 }
 
 public extension TargetType {
@@ -36,4 +39,6 @@ public extension TargetType {
     var sampleData: Data { Data() }
 
     var redirectHandler: RedirectHandler? { nil }
+
+    var timeoutInterval: TimeInterval? { nil }
 }
